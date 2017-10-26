@@ -5,6 +5,7 @@ During the development I will write a article based in each tecnology used.
 
 The goal with this is to create a system that covers the most common skills such as user input, validation, data access, security, image upload, asyncrony, hashing, logging, continuous deploy and etc.
 To achive this goal every project should result into a application that will have at least:
+
  Item | Description 
  -----| :------------: 
 **User Creation**| The user should be created with an e-mail, password and mage. After submitting the form a welcome e-mail should be sent, the assword should be hashed and the image should be saved into a file. 
