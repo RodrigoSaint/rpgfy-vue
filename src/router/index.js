@@ -5,6 +5,7 @@ import Login from '@/components/login'
 import PlayerStatus from '@/components/player-status'
 import QuestList from '@/components/quest-list'
 import QuestCreation from '@/components/quest-creation'
+import QuestReport from '@/components/quest-report'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/quest/new',
       name: 'QuestCreation',
       component: QuestCreation
+    },
+    {
+      path: '/quest/report',
+      name: 'QuestReport',
+      component: QuestReport
     }
   ]
 })
