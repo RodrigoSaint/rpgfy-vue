@@ -11,9 +11,9 @@ QuestService.prototype.get = function get()
         .then(result => result.data)
 }
 
-QuestService.prototype.create = function create() 
+QuestService.prototype.create = function create(quest) 
 {
-    return getHttp().post('/quest')
+    return getHttp().post('/quest', quest)
 }
 
 export default new QuestService(); 

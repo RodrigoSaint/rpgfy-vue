@@ -1,6 +1,6 @@
 <template>
   <div>
-      <a @click="sendToCreationPage()" href="">Create</a>
+      <a @click.prevent="sendToCreationPage()" href="">Create</a>
       <div v-for="quest in questCollection">
         {{quest.title}}
       </div>
