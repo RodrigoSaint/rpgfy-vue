@@ -11,9 +11,16 @@
       </div>
       <div>
         <label for="difficulty">Difficulty</label>
-        <input placeholder="Ex: 1" type="number" 
-          min="1" max="5" id="difficulty"
-          v-model="quest.difficulty">
+        <star-rating :increment="1" 
+             :max-rating="5" 
+             inactive-color="#8c8c8c" 
+             active-color="#e6eb1f"
+             :padding="8"
+             v-model="quest.difficulty"
+             :show-rating="false"
+             :border-width="5"
+             star-size="20">
+        </star-rating>
         <error-component property-name="difficulty" :model="quest" :validation="validation"></error-component>
       </div>
       <div>
@@ -41,16 +48,21 @@
 import ErrorComponent from "./error";
 import Quest from "../model/quest";
 import QuestService from "../service/quest";
+import StarRating from 'vue-star-rating'
+
 
 export default {
-  components: {ErrorComponent},
+  components: {
+    ErrorComponent,
+    StarRating
+    },
   data() {
     return {
       validation: Quest.validation,
       quest: {
         title: "",
         description: "",
-        difficulty: 1,
+        difficulty: 3,
         dueDate: undefined
       }
     };
