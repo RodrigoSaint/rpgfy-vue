@@ -54,6 +54,7 @@
 <script>
 import ErrorComponent from "./error";
 import Player from "../model/player";
+import PlayerService from "../service/player";
 
 export default 
 {
@@ -76,8 +77,14 @@ export default
         save()
         {
             Player.validate(this.player)
-                .then(() => console.log(this.player))
+                .then(() => this.sendRequest())
                 .catch(() => alert("Invalid player"))
+        },
+        sendRequest()
+        {
+            return PlayerService.create(this.player)
+                .then(() => alert('Sucess'))
+                .catch(() => alert('Error saving the user'));
         }
     }
 }

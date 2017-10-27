@@ -1,5 +1,6 @@
 <template>
     <div>
+        <span v-if="loginError" style="color:red">User or password not found</span>
         <div>
             <label for="playerName">Player Name</label>
             <input type="text" v-model="player.playerName" placeholder="Ex: LordDestroyer" autofocus/>
@@ -16,12 +17,14 @@
     </div>
 </template>
 <script>
-
+import LoginService from "../service/login";
+import CredentialService from "../service/credential";
 export default 
 {
     data()
     {
         return {
+            loginError: false,
             player: {
                 playerName: '',
                 password: ''
@@ -31,7 +34,10 @@ export default
     methods:{
         login()
         {
-            console.log(this.player)
+            LoginService.login(this.player)
+                .then(token => CredentialService.setCredential(token))
+                .then(() => this.$router.push('/status'))
+                .catch(() => this.loginError = true)
         }
     }
 }
