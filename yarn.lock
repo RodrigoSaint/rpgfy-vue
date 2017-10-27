@@ -3847,6 +3847,10 @@ phantomjs-prebuilt@^2.1.14, phantomjs-prebuilt@^2.1.7:
     request-progress "~2.0.1"
     which "~1.2.10"
 
+picnic@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/picnic/-/picnic-6.4.0.tgz#6fe12f499c335cb8a9ade49189683d10c42e1d5f"
+
 pify@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"

@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <h1>User Creation</h1>
-        <form>
+    <div class="flex center three"> 
+        <div class="two-third">
+            <h1>User Creation</h1>
             <div>
                 <label for="name">Name</label>
                 <input id="name"
@@ -47,7 +47,7 @@
                     Save
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 </template>
 
