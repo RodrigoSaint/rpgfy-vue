@@ -19,14 +19,16 @@
              v-model="quest.difficulty"
              :show-rating="false"
              :border-width="5"
-             star-size="20">
+             :star-size="20">
         </star-rating>
         <error-component property-name="difficulty" :model="quest" :validation="validation"></error-component>
       </div>
       <div>
         <label for="due-date">Due date</label>
-        <input placeholder="Ex: 1/1/2017" type="date" id="due-date"
-          v-model="quest.dueDate">
+        <!-- <input placeholder="Ex: 1/1/2017" type="date" 
+          v-model="quest.dueDate">  -->
+        <datepicker :format="customFormatter" language="pt-br" id="due-date" 
+          placeholder="Ex: 1/1/2017" v-model="quest.dueDate"></datepicker>
         <error-component property-name="dueDate" :model="quest" :validation="validation"></error-component>
       </div>
       <div>
@@ -49,12 +51,16 @@ import ErrorComponent from "./error";
 import Quest from "../model/quest";
 import QuestService from "../service/quest";
 import StarRating from 'vue-star-rating'
+import Datepicker from 'vuejs-datepicker';
+import * as moment from 'moment';
+import dateConfig from '../date-config'
 
 
 export default {
   components: {
     ErrorComponent,
-    StarRating
+    StarRating,
+    Datepicker
     },
   data() {
     return {
@@ -81,6 +87,9 @@ export default {
         .then(() => alert('Sucess'))
         .then(() => this.$router.push('/quest'))
         .catch(() => alert('Error Sending request'))
+    },
+    customFormatter(date) {
+      return moment(date).format(dateConfig.dateFormat.short);;
     }
   }
 };

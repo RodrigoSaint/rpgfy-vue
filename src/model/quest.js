@@ -24,8 +24,7 @@ Quest.validation = {
         }
     },
     dueDate: {datetime:{
-        earliest: moment().add(-1, 'days').toDate(),
-        dateOnly: true
+        earliest: moment().add(-1, 'days').toDate()
     }}
 }
 
