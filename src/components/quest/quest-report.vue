@@ -22,7 +22,7 @@
   </div>
 </template>
 <script>
-import QuestReportService from "../service/quest-report";
+import QuestReportService from "@/service/quest-report";
 export default {
     data()
     {

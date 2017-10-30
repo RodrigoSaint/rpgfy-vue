@@ -19,8 +19,8 @@
   </div>
 </template>
 <script>
-import QuestService from "../service/quest";
-import QuestStatus from '../model/quest.status';
+import QuestService from "@/service/quest";
+import QuestStatus from '@/model/quest.status';
 import moment from 'moment';
 export default 
 {

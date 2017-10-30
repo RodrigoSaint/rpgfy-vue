@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import ErrorComponent from "./error";
-import Player from "../model/player";
-import PlayerService from "../service/player";
+import ErrorComponent from "../error";
+import Player from "@/model/player";
+import PlayerService from "@/service/player";
 
 export default 
 {

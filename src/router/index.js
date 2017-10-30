@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PlayerCreation from '@/components/player-creation'
+import PlayerCreation from '@/components/player/player-creation'
+import PlayerStatus from '@/components/player/player-status'
 import Login from '@/components/login'
-import PlayerStatus from '@/components/player-status'
-import QuestList from '@/components/quest-list'
-import QuestCreation from '@/components/quest-creation'
-import QuestReport from '@/components/quest-report'
+import QuestList from '@/components/quest/quest-list'
+import QuestCreation from '@/components/quest/quest-creation'
+import QuestReport from '@/components/quest/quest-report'
 
 Vue.use(Router)
 

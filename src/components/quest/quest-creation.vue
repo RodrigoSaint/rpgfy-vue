@@ -47,13 +47,13 @@
   </div>
 </template>
 <script>
-import ErrorComponent from "./error";
-import Quest from "../model/quest";
-import QuestService from "../service/quest";
+import ErrorComponent from "../error";
+import Quest from "@/model/quest";
+import QuestService from "@/service/quest";
 import StarRating from 'vue-star-rating'
 import Datepicker from 'vuejs-datepicker';
 import * as moment from 'moment';
-import dateConfig from '../date-config'
+import dateConfig from '../../date-config'
 
 
 export default {

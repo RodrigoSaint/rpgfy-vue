@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import PlayerService from "../service/player";
+import PlayerService from "@/service/player";
 export default 
 {
   beforeCreate(){
