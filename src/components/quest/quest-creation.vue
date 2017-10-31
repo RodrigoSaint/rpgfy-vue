@@ -47,7 +47,7 @@
   </div>
 </template>
 <script>
-import ErrorComponent from "../error";
+import ErrorComponent from "vue-validatejs";
 import Quest from "@/model/quest";
 import QuestService from "@/service/quest";
 import StarRating from 'vue-star-rating'

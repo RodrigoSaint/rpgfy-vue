@@ -19,6 +19,7 @@
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-star-rating": "^1.4.0",
+    "vue-validatejs": "git+https://github.com/RodrigoSaint/vue-validate.js.git",
     "vuejs-datepicker": "^0.9.18"
   },
   "devDependencies": {

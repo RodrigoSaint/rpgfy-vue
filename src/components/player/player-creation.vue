@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import ErrorComponent from "../error";
+import ErrorComponent from "vue-validatejs";
 import Player from "@/model/player";
 import PlayerService from "@/service/player";
 
