@@ -29,7 +29,8 @@
           v-model="quest.dueDate">  -->
         <datepicker :format="customFormatter" language="pt-br" id="due-date" 
           placeholder="Ex: 1/1/2017" v-model="quest.dueDate"></datepicker>
-        <error-component property-name="dueDate" :model="quest" :validation="validation"></error-component>
+        <error-component property-name="dueDate" :model="quest" 
+         :validate-config="validateConfig" :validation="validation"></error-component>
       </div>
       <div>
         <label for="description">Description</label>
@@ -54,6 +55,7 @@ import StarRating from 'vue-star-rating'
 import Datepicker from 'vuejs-datepicker';
 import * as moment from 'moment';
 import dateConfig from '../../date-config'
+import setValidateConfig from '../../validate-config'
 
 
 export default {
@@ -65,6 +67,7 @@ export default {
   data() {
     return {
       validation: Quest.validation,
+      validateConfig: setValidateConfig,
       quest: {
         title: "",
         description: "",

@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import * as configValidate from './validate-config'
+import * as validate from 'validate.js';
+import configValidate from './validate-config'
 import Picnic from 'picnic'
 
+configValidate(validate);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -4,8 +4,8 @@
             <h1>Login</h1>
             <span v-if="loginError" style="color:red">User or password not found</span>
             <div>
-                <label for="playerName">Player Name</label>
-                <input type="text" v-model="player.playerName" placeholder="Ex: LordDestroyer" autofocus/>
+                <label for="name">Player Name</label>
+                <input type="text" v-model="player.name" placeholder="Ex: LordDestroyer" autofocus/>
             </div>
             <div>
                 <label for="password">Password</label>
@@ -27,7 +27,7 @@ export default {
     return {
       loginError: false,
       player: {
-        playerName: "",
+        name: "",
         password: ""
       }
     };
