@@ -1,7 +1,7 @@
 <template>
   <div class="flex center three">
-    <div class="two-third">
-      <h1>Quest Creation</h1>
+    <div class="two-third card">
+      <header>Quest Creation</header>
       <div>
         <label for="title">Title</label>
         <input id="title" type="text" 

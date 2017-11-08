@@ -1,7 +1,7 @@
 <template>
     <div class="flex center three">
-        <div class="two-third">
-            <h1>Login</h1>
+        <div class="two-third card">
+            <header>Login</header>
             <span v-if="loginError" style="color:red">User or password not found</span>
             <div>
                 <label for="name">Player Name</label>

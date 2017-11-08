@@ -1,19 +1,21 @@
 <template>
   <div class="flex one center">
-    <div class="two-third">
+    <div class="two-third semi-transparent-background basic-spacing">
         <h1>Quest List</h1>
         <a @click.prevent="sendToCreationPage()" href="">Create Quest</a>
         <div class="flex three">
-            <article class="card quest-card-space" v-for="quest in questCollection">
-                <header>
-                    <h3>{{quest.title}}</h3>
-                </header>
-                <footer>
-                    <button class="success" @click="completeQuest(quest)">Fight</button>
-                    <button class="error" @click="failQuest(quest)">Give Up</button>
-                    <button @click="changeDueDate(quest)">Flee</button>
-                </footer>
-            </article>
+            <div class="quest" v-for="quest in questCollection">
+                <article class="card" >
+                    <header>
+                        <h3>{{quest.title}}</h3>
+                    </header>
+                    <footer>
+                        <button class="success" @click="completeQuest(quest)">Fight</button>
+                        <button class="error" @click="failQuest(quest)">Give Up</button>
+                        <button @click="changeDueDate(quest)">Flee</button>
+                    </footer>
+                </article>
+            </div>
         </div>
     </div>
   </div>
