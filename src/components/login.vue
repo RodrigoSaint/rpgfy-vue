@@ -36,6 +36,7 @@ export default {
     login() {
       LoginService.login(this.player)
         .then(token => CredentialService.setCredential(token))
+        .then(() => this.$store.commit('changeLogState', true))
         .then(() => this.$router.push("/status"))
         .catch(() => (this.loginError = true));
     }
