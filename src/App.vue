@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="background-world-map center-both">
+  <div id="app" style="height: 100%">
     <nav class="demo">
       <a href="#" class="brand">
         <img class="logo" src="/web/img/basket.png" />
@@ -19,22 +19,25 @@
         <a href="#/quest/report" class="pseudo button">Report</a>
       </div>
   </nav>
-    <router-view/>
+    <div :class="[background]" class="center-both background-full">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
 import CredentialService from "./service/credential";
 import {mapState} from "vuex";
+import mutationTypes from "./store/mutation-types";
 
 export default {
   name: 'app',
   beforeCreate()
   {
-    this.$store.commit('changeLogState', CredentialService.getCredential())
+    this.$store.commit(mutationTypes.CHANGE_LOG_STATE, CredentialService.getCredential())
   },
   computed: {
-    ...mapState(['isLogged'])
+    ...mapState(['isLogged', 'background'])
   }
 }
 </script>

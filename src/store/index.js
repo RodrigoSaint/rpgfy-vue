@@ -1,15 +1,20 @@
 import Vuex from "vuex";
+import mutationTypes from "./mutation-types";
 
 export default function getStore() 
 {
     return new Vuex.Store({
         state: {
-            isLogged: false 
+            isLogged: false,
+            background: ''
         },
         mutations: {
-            changeLogState(state, isLogged)
+            [mutationTypes.CHANGE_LOG_STATE] (state, isLogged)
             {
                 state.isLogged = isLogged;
+            },
+            [mutationTypes.CHANGE_BACKGROUND](state, backgroundClass){
+                state.background = backgroundClass;
             }
         }
     })

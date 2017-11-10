@@ -22,7 +22,11 @@
 <script>
 import LoginService from "../service/login";
 import CredentialService from "../service/credential";
+import mutationTypes from "../store/mutation-types";
 export default {
+  beforeCreate(){
+      this.$store.commit(mutationTypes.CHANGE_BACKGROUND, 'background-world-map')
+  },
   data() {
     return {
       loginError: false,

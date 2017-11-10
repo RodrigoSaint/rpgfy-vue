@@ -24,12 +24,15 @@
 import QuestService from "@/service/quest";
 import QuestStatus from '@/model/quest.status';
 import moment from 'moment';
+import mutationTypes from "../../store/mutation-types";
+
 export default 
 {
     data(){
         return {questCollection: []}
     },
     beforeCreate(){
+        this.$store.commit(mutationTypes.CHANGE_BACKGROUND, 'background-plain')
         return QuestService.get()
             .then(questCollection => this.questCollection = questCollection)
     },

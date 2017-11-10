@@ -56,9 +56,13 @@ import Datepicker from 'vuejs-datepicker';
 import * as moment from 'moment';
 import dateConfig from '../../date-config'
 import setValidateConfig from '../../validate-config'
+import mutationTypes from "../../store/mutation-types";
 
 
 export default {
+  beforeCreate(){
+    this.$store.commit(mutationTypes.CHANGE_BACKGROUND, 'background-plain')
+  },
   components: {
     ErrorComponent,
     StarRating,
