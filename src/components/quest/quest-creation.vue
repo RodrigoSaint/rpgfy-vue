@@ -69,7 +69,7 @@ export default {
     },
   data() {
     return {
-      validation: Quest.validation,
+      validation: {},
       validateConfig: setValidateConfig,
       quest: {
         title: "",
@@ -83,6 +83,7 @@ export default {
   {
     save()
     {
+      this.validation = Quest.validation;
       Quest.validate(this.quest)
         .then(() => this.sendRequest())
         .catch(() => this.$swal('Invalid information', 'There are some invalid fields', 'error'))
@@ -95,7 +96,7 @@ export default {
         .catch(() =>  this.$swal('Error', 'We had a issue trying to write your quest', 'error'))
     },
     customFormatter(date) {
-      return moment(date).format(dateConfig.dateFormat.short);;
+      return moment(date).format(dateConfig.dateFormat.short);
     }
   }
 };
