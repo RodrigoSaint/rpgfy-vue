@@ -12,7 +12,12 @@
         </div>
         <div>
           <label for="difficulty">Difficulty</label>
-          <star-rating :increment="1" 
+          <star-rating
+            v-model="quest.difficulty"
+            >
+
+          </star-rating>
+          <!-- <star-rating :increment="1" 
                 :max-rating="5" 
                 inactive-color="#8c8c8c" 
                 active-color="#e6eb1f"
@@ -21,7 +26,7 @@
                 :show-rating="false"
                 :border-width="5"
                 :star-size="20">
-          </star-rating>
+          </star-rating> -->
           <error-component property-name="difficulty" :model="quest" :validation="validation"></error-component>
         </div>
         <div>
@@ -58,8 +63,9 @@ import dateConfig from '@/date-config'
 import setValidateConfig from '@/validate-config'
 import mutationTypes from "@/store/mutation-types";
 import MonsterSelection from "@/components/quest/monster-selection";
+import StarRating from "@/components/common/star-rating";
 
-import StarRating from 'vue-star-rating'
+// import StarRating from 'vue-star-rating'
 import Datepicker from 'vuejs-datepicker';
 import * as moment from 'moment';
 import ErrorComponent from "vue-validatejs";
