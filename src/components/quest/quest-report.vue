@@ -26,6 +26,7 @@
 </template>
 <script>
 import QuestReportService from "@/service/quest-report";
+import mutationTypes from "@/store/mutation-types";
 export default {
     data()
     {
@@ -33,6 +34,7 @@ export default {
     },
     beforeCreate()
     {
+        this.$store.commit(mutationTypes.CHANGE_BACKGROUND, 'background-plain')
         return QuestReportService.get('/quest-report')
             .then(questReportCollection => this.questReportCollection = questReportCollection)
     }

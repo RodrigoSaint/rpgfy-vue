@@ -46,15 +46,16 @@
   </div>
 </template>
 <script>
-import ErrorComponent from "vue-validatejs";
 import Quest from "@/model/quest";
 import QuestService from "@/service/quest";
+import dateConfig from '@/date-config'
+import setValidateConfig from '@/validate-config'
+import mutationTypes from "@/store/mutation-types";
+
 import StarRating from 'vue-star-rating'
 import Datepicker from 'vuejs-datepicker';
 import * as moment from 'moment';
-import dateConfig from '../../date-config'
-import setValidateConfig from '../../validate-config'
-import mutationTypes from "../../store/mutation-types";
+import ErrorComponent from "vue-validatejs";
 
 
 export default {

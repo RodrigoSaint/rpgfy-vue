@@ -21,8 +21,8 @@
 <script>
 import QuestService from "@/service/quest";
 import QuestStatus from '@/model/quest.status';
+import mutationTypes from "@/store/mutation-types";
 import moment from 'moment';
-import mutationTypes from "../../store/mutation-types";
 
 export default 
 {

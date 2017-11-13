@@ -8,7 +8,7 @@
 </template>
 <script>
 import PlayerService from "@/service/player";
-import mutationTypes from "../../store/mutation-types";
+import mutationTypes from "@/store/mutation-types";
 
 export default 
 {

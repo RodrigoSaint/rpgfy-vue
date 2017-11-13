@@ -55,7 +55,7 @@
 import ErrorComponent from "vue-validatejs";
 import Player from "@/model/player";
 import PlayerService from "@/service/player";
-import mutationTypes from "../../store/mutation-types";
+import mutationTypes from "@/store/mutation-types";
 
 export default {
   components: {
