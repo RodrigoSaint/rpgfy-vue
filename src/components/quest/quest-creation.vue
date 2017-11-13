@@ -2,47 +2,53 @@
   <div class="two-third card">
     <header>Quest Creation</header>
     <div>
-      <label for="title">Title</label>
-      <input id="title" type="text" 
-        placeholder="Ex: Search ruins"
-        v-model="quest.title" autofocus>
-      <error-component property-name="title" :model="quest" :validation="validation"></error-component>
+      <div class="flex two">
+        <div>
+          <label for="title">Title</label>
+          <input id="title" type="text" 
+            placeholder="Ex: Search ruins"
+            v-model="quest.title" autofocus>
+          <error-component property-name="title" :model="quest" :validation="validation"></error-component>
+        </div>
+        <div>
+          <label for="difficulty">Difficulty</label>
+          <star-rating :increment="1" 
+                :max-rating="5" 
+                inactive-color="#8c8c8c" 
+                active-color="#e6eb1f"
+                :padding="8"
+                v-model="quest.difficulty"
+                :show-rating="false"
+                :border-width="5"
+                :star-size="20">
+          </star-rating>
+          <error-component property-name="difficulty" :model="quest" :validation="validation"></error-component>
+        </div>
+        <div>
+          <label for="due-date">Due date</label>
+          <datepicker :format="customFormatter" language="pt-br" id="due-date" 
+            placeholder="Ex: 1/1/2017" v-model="quest.dueDate"></datepicker>
+          <error-component property-name="dueDate" :model="quest" 
+            :validate-config="validateConfig" :validation="validation"></error-component>
+        </div>
+        <div>
+          <label for="select-mob">Select Mob</label>
+          <select-with-image></select-with-image>
+        </div>
+        <div class="full">
+          <label for="description">Description</label>
+          <textarea id="description" 
+            placeholder="Ex: Search ruins for treasures!"
+            v-model="quest.description"></textarea>
+          <error-component property-name="description" :model="quest" :validation="validation"></error-component>
+        </div>
+      </div>
     </div>
-    <div>
-      <label for="difficulty">Difficulty</label>
-      <star-rating :increment="1" 
-            :max-rating="5" 
-            inactive-color="#8c8c8c" 
-            active-color="#e6eb1f"
-            :padding="8"
-            v-model="quest.difficulty"
-            :show-rating="false"
-            :border-width="5"
-            :star-size="20">
-      </star-rating>
-      <error-component property-name="difficulty" :model="quest" :validation="validation"></error-component>
-    </div>
-    <div>
-      <label for="due-date">Due date</label>
-      <!-- <input placeholder="Ex: 1/1/2017" type="date" 
-        v-model="quest.dueDate">  -->
-      <datepicker :format="customFormatter" language="pt-br" id="due-date" 
-        placeholder="Ex: 1/1/2017" v-model="quest.dueDate"></datepicker>
-      <error-component property-name="dueDate" :model="quest" 
-        :validate-config="validateConfig" :validation="validation"></error-component>
-    </div>
-    <div>
-      <label for="description">Description</label>
-      <textarea id="description" 
-        placeholder="Ex: Search ruins for treasures!"
-        v-model="quest.description"></textarea>
-      <error-component property-name="description" :model="quest" :validation="validation"></error-component>
-    </div>
-    <div>
+    <footer>
       <button @click="save()" type="submit">
         Save
       </button>
-    </div>
+    </footer>
   </div>
 </template>
 <script>
@@ -51,6 +57,7 @@ import QuestService from "@/service/quest";
 import dateConfig from '@/date-config'
 import setValidateConfig from '@/validate-config'
 import mutationTypes from "@/store/mutation-types";
+import SelectWithImage from "@/components/select-with-image";
 
 import StarRating from 'vue-star-rating'
 import Datepicker from 'vuejs-datepicker';
@@ -65,8 +72,9 @@ export default {
   components: {
     ErrorComponent,
     StarRating,
-    Datepicker
-    },
+    Datepicker,
+    SelectWithImage
+  },
   data() {
     return {
       validation: {},
