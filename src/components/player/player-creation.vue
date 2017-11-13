@@ -81,12 +81,12 @@ export default {
         Player.validate(this.player)
             .then(() => this.sendRequest())
             .then(() => this.$router.push("/login"))
-            .catch(() => alert("Invalid player"));
+            .catch(() =>  this.$swal('Invalid information', 'There are some invalid fields', 'error'));
     },
     sendRequest() {
       return PlayerService.create(this.player)
-        .then(() => alert("Sucess"))
-        .catch(() => alert("Error saving the user"));
+        .then(() => this.$swal('Success!', 'The user was created. Please do the login to access your private area.', 'success'))
+        .catch(() => this.$swal('Error', 'We had a issue trying to create your user', 'error'));
     }
   }
 };

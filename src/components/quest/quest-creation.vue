@@ -85,14 +85,14 @@ export default {
     {
       Quest.validate(this.quest)
         .then(() => this.sendRequest())
-        .catch(() => alert('Invalid Quest'))
+        .catch(() => this.$swal('Invalid information', 'There are some invalid fields', 'error'))
     },
     sendRequest()
     {
       return QuestService.create(this.quest)
-        .then(() => alert('Sucess'))
+        .then(() => this.$swal('Success!', 'The quest was created.', 'success'))
         .then(() => this.$router.push('/quest'))
-        .catch(() => alert('Error Sending request'))
+        .catch(() =>  this.$swal('Error', 'We had a issue trying to write your quest', 'error'))
     },
     customFormatter(date) {
       return moment(date).format(dateConfig.dateFormat.short);;
