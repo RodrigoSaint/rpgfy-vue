@@ -1,21 +1,19 @@
 <template>
-    <div class="flex center three">
-        <div class="two-third card">
-            <header>Login</header>
-            <span v-if="loginError" style="color:red">User or password not found</span>
-            <div>
-                <label for="name">Player Name</label>
-                <input type="text" v-model="player.name" placeholder="Ex: LordDestroyer" autofocus/>
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" v-model="player.password" placeholder="Ex: ******">
-            </div>
-            <div>
-                <button @click.prevent="login" type="submit">
-                    Login
-                </button>
-            </div>
+    <div class="two-third card">
+        <header>Login</header>
+        <span v-if="loginError" style="color:red">User or password not found</span>
+        <div>
+            <label for="name">Player Name</label>
+            <input type="text" v-model="player.name" placeholder="Ex: LordDestroyer" autofocus/>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" v-model="player.password" placeholder="Ex: ******">
+        </div>
+        <div>
+            <button @click.prevent="login" type="submit">
+                Login
+            </button>
         </div>
     </div>
 </template>

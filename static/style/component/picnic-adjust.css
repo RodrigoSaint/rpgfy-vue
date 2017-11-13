@@ -1,0 +1,30 @@
+table
+{
+    width: 100%;
+}
+
+label
+{
+  font-weight: bold;
+}
+
+
+.card > div
+{
+  margin: 0px 1em 0px 1em
+}
+
+div.card, .semi-transparent-background
+{
+  background-color:rgba(255,255,255,0.75)
+}
+
+div.card > header
+{
+  border-bottom: 1px solid rgb(0, 0, 0)
+}
+
+.card > div
+{
+  margin-top: 1em;
+}

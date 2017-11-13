@@ -1,5 +1,4 @@
 <template>
-  <div class="flex one center">
     <div class="two-third semi-transparent-background basic-spacing">
         <h1>Quest List</h1>
         <a @click.prevent="sendToCreationPage()" href="">Create Quest</a>
@@ -17,7 +16,6 @@
                 </article>
             </div>
         </div>
-    </div>
   </div>
 </template>
 <script>

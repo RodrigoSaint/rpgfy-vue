@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="two-third card">
       <span>Player Name</span>
       <span>{{player.name}}</span>
       <span>LV {{player.level}}</span>

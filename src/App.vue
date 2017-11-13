@@ -19,8 +19,10 @@
         <a href="#/quest/report" class="pseudo button">Report</a>
       </div>
   </nav>
-    <div :class="[background]" class="center-both background-full">
-      <router-view/>
+    <div :class="[background]" class="center-both background-full flex one">
+      <transition name="fade">
+        <router-view/>
+      </transition>
     </div>
   </div>
 </template>
