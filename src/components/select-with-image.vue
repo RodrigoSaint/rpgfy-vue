@@ -1,32 +1,32 @@
 <template>
     <div>
         <label for="modal_1" class="button">Select mob</label>
-
         <div class="modal">
             <input id="modal_1" type="checkbox" />
             <label for="modal_1" class="overlay"></label>
             <div>
                 <header>
-                    <h3>Select a mob</h3>
+                    <h3><icon class="dragon-mob"></icon>Monster Selection</h3>
                     <label for="modal_1" class="close">&times;</label>
                 </header>
-                <div>
+                <div style="padding: 1em">
                     <div class="flex one">
-                        <input v-model="filter" type="text">
-                        <div class="component-row" v-if="selectedItem">
-                            <img class="component-image" :src="selectedItem.image" :alt="selectedItem.name"> <label>{{selectedItem.name}}</label>                            
+                        <input v-model="filter" type="text" placeholder="Filter">
+                        <div class="component-row selected-item" v-if="selectedItem">
+                            <img :src="selectedItem.image" :alt="selectedItem.name"> 
+                            <h3>
+                                <icon class="star"></icon>
+                                {{selectedItem.name}}
+                            </h3>
+                            <p>{{selectedItem.description}}</p>
                         </div>
                         <div class="component-row" @click="selectItem(item)" v-bind:key="item.name" v-for="item in itemListFiltered">
-                            <img class="component-image" :src="item.image" :alt="item.name"> <label>{{item.name}}</label>
+                            <img :src="item.image" :alt="item.name"> 
+                            <h3><icon class="star-unselected"></icon>{{item.name}}</h3>
+                            <p>{{item.description}}</p>
                         </div>
                     </div>
                 </div>
-                <footer>
-                    <a class="button" href="#">Select item</a>
-                    <label for="modal_1" class="button dangerous">
-                        Cancel
-                    </label>
-                </footer>
             </div>
         </div>
     </div>
@@ -35,9 +35,13 @@
 export default 
 {
   computed: {
+      itemListWithoutSelected: function () 
+      {
+        return this.itemList.filter(item => item != this.selectedItem);  
+      },
       itemListFiltered: function () 
       {
-          return this.itemList.filter(item => item.name.toLowerCase().indexOf(this.filter.toLowerCase()) != -1)
+          return this.itemListWithoutSelected.filter(item => item.name.toLowerCase().indexOf(this.filter.toLowerCase()) != -1)
       }
   },
   data () {
@@ -46,10 +50,13 @@ export default
           filter: '',
           selectedItem: null,
           itemList: [
-            {name: 'Mob 1', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 2', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 3', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 4', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'}
+            {name: 'Mob 1', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
+            {name: 'Mob 2', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
+            {name: 'Mob 3', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
+            {name: 'Mob 4', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
+            {name: 'Mob 5', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
+            {name: 'Mob 6', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
+            {name: 'Mob 7', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'}
         ]
       }
   },
@@ -62,12 +69,28 @@ export default
 }
 </script>
 <style>
-    .component-image
+    .selected-item
+    {
+        background-color: lightgray;        
+    }
+    .component-row > img
     {
         max-height: 100px;
         max-width: 200px;
-        border: 1px solid black;
+        float: left;
+        margin-right: 1em;
+    }
+
+    .component-row
+    {
+        border-bottom: 1px solid black;
         border-radius: .2px;
+    }
+
+    .component-row:hover
+    {
+        background-color: lightgray;
+        cursor: pointer; 
     }
 
 </style>

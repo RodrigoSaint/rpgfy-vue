@@ -9,14 +9,14 @@
       <input id="bmenub" type="checkbox" class="show">
       <label for="bmenub" class="burger pseudo button">Menu</label>
       <div v-if="!isLogged" class="menu">
-        <a href="#/" class="button pseudo">Sign in</a>
-        <a href="#/login" class="pseudo button">Login</a>
+        <a href="#/" class="button pseudo"><icon class="power"></icon>Sign in</a>
+        <a href="#/login" class="pseudo button"><icon class="map-old"></icon>Login</a>
       </div>
 
       <div v-if="isLogged" class="menu">
-        <a href="#/status" class="pseudo button">Status</a>        
-        <a href="#/quest" class="pseudo button">Quest</a>
-        <a href="#/quest/report" class="pseudo button">Report</a>
+        <a href="#/status" class="pseudo button"><icon class="sword"></icon>Status</a>        
+        <a href="#/quest" class="pseudo button"><icon class="book"></icon>Quest</a>
+        <a href="#/quest/report" class="pseudo button"><icon class="report"></icon>Report</a>
       </div>
   </nav>
     <div :class="[background]" class="center-both background-full flex one">

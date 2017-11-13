@@ -1,9 +1,9 @@
 <template>
     <div class="two-third semi-transparent-background basic-spacing">
-        <h1>Quest List</h1>
+        <h1 style="margin-left: 10px">Quest List</h1>
         <a @click.prevent="sendToCreationPage()" href="">Create Quest</a>
         <div class="flex three">
-            <div class="quest" v-for="quest in questCollection">
+            <div class="quest" :key="quest._id" v-for="quest in questCollection">
                 <article class="card" >
                     <header>
                         <h3>{{quest.title}}</h3>
