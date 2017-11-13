@@ -6,7 +6,7 @@
             <label for="modal_1" class="overlay"></label>
             <div>
                 <header>
-                    <h3><icon class="dragon-mob"></icon>Monster Selection</h3>
+                    <h3><div class="icon dragon-mob"></div>Monster Selection</h3>
                     <label for="modal_1" class="close">&times;</label>
                 </header>
                 <div style="padding: 1em">
@@ -15,14 +15,14 @@
                         <div class="component-row selected-item" v-if="selectedItem">
                             <img :src="selectedItem.image" :alt="selectedItem.name"> 
                             <h3>
-                                <icon class="star"></icon>
+                                <div class="icon star"></div>
                                 {{selectedItem.name}}
                             </h3>
                             <p>{{selectedItem.description}}</p>
                         </div>
                         <div class="component-row" @click="selectItem(item)" v-bind:key="item.name" v-for="item in itemListFiltered">
                             <img :src="item.image" :alt="item.name"> 
-                            <h3><icon class="star-unselected"></icon>{{item.name}}</h3>
+                            <h3><div class="icon star-unselected"></div>{{item.name}}</h3>
                             <p>{{item.description}}</p>
                         </div>
                     </div>
