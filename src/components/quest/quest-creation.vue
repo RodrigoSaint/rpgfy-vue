@@ -33,7 +33,7 @@
         </div>
         <div>
           <label for="select-mob">Select Mob</label>
-          <select-with-image></select-with-image>
+          <monster-selection></monster-selection>
         </div>
         <div class="full">
           <label for="description">Description</label>
@@ -57,7 +57,7 @@ import QuestService from "@/service/quest";
 import dateConfig from '@/date-config'
 import setValidateConfig from '@/validate-config'
 import mutationTypes from "@/store/mutation-types";
-import SelectWithImage from "@/components/select-with-image";
+import MonsterSelection from "@/components/quest/monster-selection";
 
 import StarRating from 'vue-star-rating'
 import Datepicker from 'vuejs-datepicker';
@@ -73,7 +73,7 @@ export default {
     ErrorComponent,
     StarRating,
     Datepicker,
-    SelectWithImage
+    MonsterSelection
   },
   data() {
     return {
