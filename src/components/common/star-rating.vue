@@ -1,7 +1,7 @@
 <template>
   <div>
       <div v-for="number in numberCollection" class="icon"
-        :class="{'star': (number <= value), 'star-unselected': (number > value) }" 
+        :class="{'star': (number <= value), 'star-unselected': (number > value), disabled: disabled }" 
         @click="updateValue(number)"
         :key='number' 
         :value='number'></div>
@@ -9,23 +9,30 @@
 </template>
 <script>
 export default {
-  props: ['value'],
+  props: ['value', 'disabled'],
   data(){
-      return {numberCollection: [1,2,3,4,5]}
+      return {
+        disabled: false,
+        numberCollection: [1,2,3,4,5]
+      }
   },
   methods: {
     updateValue: function (value) 
     {
-      this.$emit('input', value)
+      if(!this.disabled) this.$emit('input', value)
     }
   }
 }
 </script>
 <style scoped>
-    .icon.star, .icon.star-unselected{
+    .icon.star, .icon.star-unselected
+    {
         transform: scale(1.25, 1.25);
         margin-right: 20px;
         margin-top: 5px;
         cursor: pointer;
+    }
+    .icon.star.disabled{
+      cursor: default;
     }
 </style>

@@ -12,11 +12,7 @@
         </div>
         <div>
           <label for="difficulty">Difficulty</label>
-          <star-rating
-            v-model="quest.difficulty"
-            >
-
-          </star-rating>
+          <star-rating v-model="quest.difficulty"></star-rating>
           <!-- <star-rating :increment="1" 
                 :max-rating="5" 
                 inactive-color="#8c8c8c" 

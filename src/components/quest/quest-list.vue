@@ -1,24 +1,22 @@
 <template>
     <div class="two-third semi-transparent-background basic-spacing">
-        <h1 style="margin-left: 10px">Quest List</h1>
-        <a @click.prevent="sendToCreationPage()" href="">Create Quest</a>
-        <div class="flex three">
+        <div style="margin-right: 10px">
+            <h1>Quest List</h1>
+            <a @click.prevent="sendToCreationPage()" href="">Create Quest</a>
+            <hr>
+        </div>
+        <div class="flex three" style="max-height: 50vh; overflow-y: scroll">
             <div class="quest" :key="quest._id" v-for="quest in questCollection">
-                <article class="card" >
+                <div class="card" >
                     <header>
                         <h3>{{quest.title}}</h3>
                     </header>
-                     <img src="http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772" alt="" class="quest-image">   
-                    <!-- <img src="" alt="mob"> -->
+                     <img src="http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772" 
+                        alt="" class="quest-image">   
                     <footer>
-                        <button class="success" @click="completeQuest(quest)">
-                            <div class="icon sword-attack"></div>
-                            Fight
-                        </button>
-                        <button class="error" @click="failQuest(quest)">Give Up</button>
-                        <button @click="changeDueDate(quest)">Flee</button>
+                        <star-rating disabled="true" v-model="quest.difficulty"></star-rating>
                     </footer>
-                </article>
+                </div>
             </div>
         </div>
   </div>
@@ -27,10 +25,12 @@
 import QuestService from "@/service/quest";
 import QuestStatus from '@/model/quest.status';
 import mutationTypes from "@/store/mutation-types";
+import StarRating from "@/components/common/star-rating";
 import moment from 'moment';
 
 export default 
 {
+    components:{StarRating},
     data(){
         return {questCollection: []}
     },
@@ -75,3 +75,22 @@ export default
     }
 }
 </script>
+<style scoped>
+    footer{
+        min-height: 50px;
+    }
+    footer > div
+    {
+        display: table; 
+        margin: auto;
+    }
+
+    .quest>.card:hover
+    {
+        cursor: pointer;
+        background-color: lightgray;
+    }
+
+
+</style>
+
