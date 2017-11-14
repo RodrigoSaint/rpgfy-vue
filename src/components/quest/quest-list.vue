@@ -8,8 +8,13 @@
                     <header>
                         <h3>{{quest.title}}</h3>
                     </header>
+                     <img src="http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772" alt="" class="quest-image">   
+                    <!-- <img src="" alt="mob"> -->
                     <footer>
-                        <button class="success" @click="completeQuest(quest)">Fight</button>
+                        <button class="success" @click="completeQuest(quest)">
+                            <div class="icon sword-attack"></div>
+                            Fight
+                        </button>
                         <button class="error" @click="failQuest(quest)">Give Up</button>
                         <button @click="changeDueDate(quest)">Flee</button>
                     </footer>

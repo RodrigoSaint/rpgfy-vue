@@ -1,9 +1,19 @@
 <template>
   <div class="two-third card">
-      <span>Player Name</span>
-      <span>{{player.name}}</span>
-      <span>LV {{player.level}}</span>
-      <span>EXP {{player.experience}}</span>
+      <header>Status</header>
+      <div>
+        <div class="flex one">
+          <div>
+            <strong>Name:</strong> {{player.name}}
+          </div>
+          <div>
+            <strong>LV: </strong> {{player.level}}
+          </div>
+          <div>
+            <strong>EXP: </strong> {{player.experience}}
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 <script>

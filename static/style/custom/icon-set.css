@@ -56,3 +56,9 @@
 	width: 19px;
 	height: 19px;
 }
+
+.icon.sword-attack {
+	background: url('https://rpgfy.blob.core.windows.net/base-image/IconSet.png') no-repeat -72px -190px;
+	width: 23px;
+	height: 24px;
+}

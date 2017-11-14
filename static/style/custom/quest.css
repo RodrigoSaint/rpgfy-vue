@@ -8,3 +8,9 @@
 {
     border: 1px solid black;
 }
+
+.quest-image
+{
+  max-height: 200px;
+  margin: auto;
+}
