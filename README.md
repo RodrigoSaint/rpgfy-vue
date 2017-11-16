@@ -14,7 +14,7 @@ To achive this goal every project should result into a application that will hav
  **Quest creation** | The user should be able to create a quest.
  **Quest edition** | The user should be able to edit a quest.
  **Quest status change** | The user should be able to change the quest status
- **Quest Report** | The user should be able to see his quest history. 
+ <!-- **Quest Report** | The user should be able to see his quest history.  -->
 
 __RPGFY VUE__
 

@@ -16,7 +16,7 @@
       <div v-if="isLogged" class="menu">
         <a href="#/status" class="pseudo button"><div class="icon sword"></div>Status</a>        
         <a href="#/quest" class="pseudo button"><div class="icon book"></div>Quest</a>
-        <a href="#/quest/report" class="pseudo button"><div class="icon report"></div>Report</a>
+        <!-- <a href="#/quest/report" class="pseudo button"><div class="icon report"></div>Report</a> -->
       </div>
   </nav>
     <div :class="[background]" class="center-both background-full flex one">
