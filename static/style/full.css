@@ -2,6 +2,7 @@
 @import url('./component/date-picker.css');
 @import url('./component/error-message.css');
 @import url('./component/picnic-adjust.css');
+@import url('./component/star-rating.css');
 
 /* custom */
 @import url('./custom/background.css');

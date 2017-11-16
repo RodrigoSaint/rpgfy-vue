@@ -1,18 +1,24 @@
 <template>
   <div>
-      <div v-for="number in numberCollection" class="icon"
+    <star v-for="number in numberCollection" :key="number"
+      :star-number="number"
+      :disabled="disabled"
+      :value="value"
+      @click="updateValue"></star>
+      <!-- <div v-for="number in numberCollection" class="icon"
         :class="{'star': (number <= value), 'star-unselected': (number > value), disabled: disabled }" 
         @click="updateValue(number)"
         :key='number' 
-        :value='number'></div>
+        :value='number'></div> -->
   </div>
 </template>
 <script>
+import Star from "./star";
 export default {
   props: ['value', 'disabled'],
+  components: {Star},
   data(){
       return {
-        disabled: false,
         numberCollection: [1,2,3,4,5]
       }
   },
@@ -24,15 +30,4 @@ export default {
   }
 }
 </script>
-<style scoped>
-    .icon.star, .icon.star-unselected
-    {
-        transform: scale(1.25, 1.25);
-        margin-right: 20px;
-        margin-top: 5px;
-        cursor: pointer;
-    }
-    .icon.star.disabled{
-      cursor: default;
-    }
-</style>
+

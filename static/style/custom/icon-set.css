@@ -45,18 +45,6 @@
 	height: 23px;
 }
 
-.icon.star{
-    background: url('https://rpgfy.blob.core.windows.net/base-image/IconSet.png') no-repeat -314px -170px;
-    width: 19px;
-    height: 19px;
-}    
-
-.icon.star-unselected {
-	background: url('https://rpgfy.blob.core.windows.net/base-image/IconSet.png') no-repeat -338px -170px;
-	width: 19px;
-	height: 19px;
-}
-
 .icon.sword-attack {
 	background: url('https://rpgfy.blob.core.windows.net/base-image/IconSet.png') no-repeat -72px -190px;
 	width: 23px;
