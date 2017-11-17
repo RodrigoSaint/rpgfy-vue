@@ -14,12 +14,39 @@ To achive this goal every project should result into a application that will hav
  **Quest creation** | The user should be able to create a quest.
  **Quest edition** | The user should be able to edit a quest.
  **Quest status change** | The user should be able to change the quest status
- <!-- **Quest Report** | The user should be able to see his quest history.  -->
 
 __RPGFY VUE__
 
-This project should experiment Vue as front-end.
-The article of this project is at: 
+This project should experiment Vue as front-end. The resulting articles of this project are at: 
+
+- https://developertipsblog.wordpress.com/2017/09/11/introducao-ao-vue-js/
+- https://developertipsblog.wordpress.com/2017/11/12/vuex-gerenciando-o-estado-de-sua-aplicacao/
 
 To execute this project you can use the rpgfy-backend-* repositories.
 
+__Technologies/skills used__
+
+ 1. Vue.js
+ 2. Vuex
+ 3. Picnicss
+
+__Results__
+
+
+![Player Creation](https://rpgfy.blob.core.windows.net/rpgfy-vue-promo/player-creation.PNG)
+> Player Creation
+
+![Login](https://rpgfy.blob.core.windows.net/rpgfy-vue-promo/login.PNG)
+>Login
+
+![Status](https://rpgfy.blob.core.windows.net/rpgfy-vue-promo/status.PNG)
+>Status
+
+![Quest List](https://rpgfy.blob.core.windows.net/rpgfy-vue-promo/quest-list.PNG)
+>Quest List
+
+![Quest Creation](https://rpgfy.blob.core.windows.net/rpgfy-vue-promo/quest-creation.PNG)
+>Quest Creation
+
+![Quest Creation Mob Selection](https://rpgfy.blob.core.windows.net/rpgfy-vue-promo/mob-selection.PNG)
+>Quest Creation Mob Selection
