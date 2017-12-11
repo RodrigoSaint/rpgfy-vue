@@ -34,7 +34,7 @@
         </div>
         <div>
           <label for="select-mob">Select Mob</label>
-          <monster-selection></monster-selection>
+          <monster-selection v-model="quest.mob"></monster-selection>
         </div>
         <div class="full">
           <label for="description">Description</label>

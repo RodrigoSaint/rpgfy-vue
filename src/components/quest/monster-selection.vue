@@ -12,13 +12,13 @@
                 <div style="padding: 1em">
                     <div class="flex one">
                         <input v-model="filter" type="text" placeholder="Filter">
-                        <div class="component-row selected-item" v-if="selectedItem">
-                            <img :src="selectedItem.image" :alt="selectedItem.name"> 
+                        <div class="component-row selected-item" v-if="value">
+                            <img :src="value.image" :alt="value.name"> 
                             <h3>
                                 <div class="icon star"></div>
-                                {{selectedItem.name}}
+                                {{value.name}}
                             </h3>
-                            <p>{{selectedItem.description}}</p>
+                            <p>{{value.description}}</p>
                         </div>
                         <div class="component-row" @click="selectItem(item)" v-bind:key="item.name" v-for="item in itemListFiltered">
                             <img :src="item.image" :alt="item.name"> 
@@ -37,18 +37,18 @@ export default
   computed: {
       itemListWithoutSelected: function () 
       {
-        return this.itemList.filter(item => item != this.selectedItem);  
+        return this.itemList.filter(item => item != this.value);  
       },
       itemListFiltered: function () 
       {
           return this.itemListWithoutSelected.filter(item => item.name.toLowerCase().indexOf(this.filter.toLowerCase()) != -1)
       }
   },
+  props: ['value'],
   data () {
       return {
           display: false,
           filter: '',
-          selectedItem: null,
           itemList: [
             {name: 'Mob 1', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
             {name: 'Mob 2', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
@@ -63,7 +63,7 @@ export default
   methods: {
       selectItem(item)
       {
-          this.selectedItem = item;
+          this.$emit('input', item);
       }
   }
 }
