@@ -7,71 +7,62 @@
         </div>
         <div class="flex three" style="max-height: 50vh; overflow-y: scroll">
             <div class="quest" :key="quest._id" v-for="quest in questCollection">
-                <div class="card" >
+                <div @click="selectQuest(quest)" class="card" >
                     <header>
                         <h3>{{quest.title}}</h3>
                     </header>
-                     <img src="http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772" 
-                        alt="" class="quest-image">   
+                    <img :src="quest.mob.image" :alt="quest.title" class="quest-image">   
                     <footer>
                         <star-rating disabled="true" v-model="quest.difficulty"></star-rating>
                     </footer>
                 </div>
             </div>
+            <quest-popup v-if="selectedQuest" 
+                @modal-close="deselectQuest"
+                :opened="modalOpened" 
+                :quest="selectedQuest"></quest-popup> 
         </div>
   </div>
 </template>
 <script>
-import QuestService from "@/service/quest";
-import QuestStatus from '@/model/quest.status';
 import mutationTypes from "@/store/mutation-types";
 import StarRating from "@/components/common/star-rating";
-import moment from 'moment';
+import QuestService from "@/service/quest";
+import QuestStatus from '@/model/quest.status';
+
+import QuestPopup from "./quest-popup";
 
 export default 
 {
-    components:{StarRating},
+    components:{ StarRating, QuestPopup},
+    computed: {
+        modalOpened(){ return this.selectedQuest != undefined; },
+        questCollection() { return this.rawQuestCollection
+            .filter(quest => quest.status == QuestStatus.started) 
+        }
+    },
     data(){
-        return {questCollection: []}
+        return {rawQuestCollection: [], selectedQuest: undefined}
     },
     beforeCreate(){
         this.$store.commit(mutationTypes.CHANGE_BACKGROUND, 'background-plain')
         return QuestService.get()
-            .then(questCollection => this.questCollection = questCollection)
+            .then(rawQuestCollection => this.rawQuestCollection = rawQuestCollection)
     },
-    methods: {
+    methods: 
+    {
+        deselectQuest()
+        {
+            this.selectedQuest = undefined;
+        },
+        selectQuest(quest)
+        {
+            this.selectedQuest = quest;
+        },
         sendToCreationPage()
         {
             this.$router.push('/quest/new')
         },
-        completeQuest(quest)
-        {
-            QuestService.changeStatus(quest, QuestStatus.completed)
-                .then(() => {
-                    quest.status = QuestStatus.completed;
-                    alert('Quest completed')
-                })
-                .catch(() => alert('Error at completing quest'))
-        },
-        failQuest(quest)
-        {
-            QuestService.changeStatus(quest, QuestStatus.fail)
-                .then(() => {
-                    quest.status = QuestStatus.completed;
-                    alert('Quest fail')
-                })
-                .catch(() => alert('Error at falling quest'))
-        },
-        changeDueDate(quest)
-        {
-            var newDueDate = moment().add(1, 'days').toDate();
-            QuestService.changeDueDate(quest, newDueDate)
-                .then(() => {
-                    quest.dueDate = newDueDate;
-                    alert('Quest duedate changed to tomorrow')
-                })
-                .catch(() => alert('Error at fleeing quest'))
-        }
     }
 }
 </script>
