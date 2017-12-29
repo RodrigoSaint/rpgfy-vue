@@ -7,16 +7,17 @@
         </div>
         <div class="flex three" style="max-height: 50vh; overflow-y: scroll">
             <div class="quest" :key="quest._id" v-for="quest in questCollection">
-                <div class="card" >
-                    <header>
-                        <h3>{{quest.title}}</h3>
-                    </header>
-                     <img src="http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772" 
-                        alt="" class="quest-image">   
-                    <footer>
-                        <star-rating disabled="true" v-model="quest.difficulty"></star-rating>
-                    </footer>
-                </div>
+                <label for="modal_1">
+                    <div class="card" >
+                        <header>
+                            <h3>{{quest.title}}</h3>
+                        </header>
+                        <img :src="quest.mob.image" :alt="quest.mob.description" class="quest-image">   
+                        <footer>
+                            <star-rating disabled="true" v-model="quest.difficulty"></star-rating>
+                        </footer>
+                    </div>
+                </label>
             </div>
         </div>
   </div>
