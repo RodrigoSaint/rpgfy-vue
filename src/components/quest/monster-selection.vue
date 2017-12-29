@@ -32,6 +32,7 @@
     </div>
 </template>
 <script>
+import MobService from "@/service/mob";
 export default 
 {
   computed: {
@@ -41,23 +42,22 @@ export default
       },
       itemListFiltered: function () 
       {
-          return this.itemListWithoutSelected.filter(item => item.name.toLowerCase().indexOf(this.filter.toLowerCase()) != -1)
+          return this.itemListWithoutSelected
+            .filter(item => item.name.toLowerCase().indexOf(this.filter.toLowerCase()) != -1)
       }
   },
   props: ['value'],
+  beforeCreate()
+  {
+      return MobService.get()
+        .then(mobCollection => this.itemList = mobCollection);
+  },
   data () {
       return {
           display: false,
           filter: '',
-          itemList: [
-            {name: 'Mob 1', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 2', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 3', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 4', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 5', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 6', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'},
-            {name: 'Mob 7', description: 'It is a dragon that breaths fire and has sharp claws. It is a difficult task only selected for the best heroes.', image: 'http://cyanyurikago.web.fc2.com/images/cuelebre.png?16970772'}
-        ]
+          selectedItem: null,
+          itemList: []
       }
   },
   methods: {
