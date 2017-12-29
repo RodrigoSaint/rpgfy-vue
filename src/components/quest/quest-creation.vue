@@ -13,16 +13,6 @@
         <div>
           <label for="difficulty">Difficulty</label>
           <star-rating v-model="quest.difficulty"></star-rating>
-          <!-- <star-rating :increment="1" 
-                :max-rating="5" 
-                inactive-color="#8c8c8c" 
-                active-color="#e6eb1f"
-                :padding="8"
-                v-model="quest.difficulty"
-                :show-rating="false"
-                :border-width="5"
-                :star-size="20">
-          </star-rating> -->
           <error-component property-name="difficulty" :model="quest" :validation="validation"></error-component>
         </div>
         <div>
@@ -35,6 +25,7 @@
         <div>
           <label for="select-mob">Select Mob</label>
           <monster-selection v-model="quest.mob"></monster-selection>
+          <error-component property-name="mob" :model="quest" :validation="validation"></error-component>
         </div>
         <div class="full">
           <label for="description">Description</label>

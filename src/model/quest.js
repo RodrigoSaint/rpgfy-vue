@@ -23,6 +23,7 @@ Quest.validation = {
             lessThan: 6
         }
     },
+    mob: {presence: true},
     dueDate: {datetime:{
         earliest: moment().add(-1, 'days').toDate()
     }}
