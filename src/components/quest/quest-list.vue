@@ -5,7 +5,7 @@
             <a @click.prevent="sendToCreationPage()" href="">Create Quest</a>
             <hr>
         </div>
-        <div class="flex three" style="max-height: 50vh; overflow-y: scroll">
+        <div class="flex one two-700 three-900" style="max-height: 50vh; overflow-y: scroll">
             <div class="quest" :key="quest._id" v-for="quest in questCollection">
                 <div @click="selectQuest(quest)" class="card" >
                     <header>

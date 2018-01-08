@@ -1,5 +1,5 @@
 <template>
-    <div class="card two-third">
+    <div class="card two-third-700">
         <header>User Creation</header>
         <div>
             <div>

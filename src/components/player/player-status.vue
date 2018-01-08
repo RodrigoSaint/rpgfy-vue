@@ -1,5 +1,5 @@
 <template>
-  <div class="two-third card">
+  <div class="two-third-700 card">
       <header>Status</header>
       <div>
         <div class="flex one">

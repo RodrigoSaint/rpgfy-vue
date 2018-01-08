@@ -1,5 +1,5 @@
 <template>
-    <div class="two-third card">
+    <div class="two-third-700 card">
         <header>Login</header>
         <span v-if="loginError" style="color:red">User or password not found</span>
         <div>

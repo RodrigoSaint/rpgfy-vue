@@ -1,8 +1,8 @@
 <template>
-  <div class="two-third card">
+  <div class="two-third-700 card">
     <header>Quest Creation</header>
     <div>
-      <div class="flex two">
+      <div class="flex one two-700">
         <div>
           <label for="title">Title</label>
           <input id="title" type="text" 
