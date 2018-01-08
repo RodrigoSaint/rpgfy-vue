@@ -1,2 +1,6 @@
 [config]
+<<<<<<< HEAD
 command = ./deploy.sh
+=======
+command = bash ./deploy.sh
+>>>>>>> 1d4f22b69ce743b9fe64b5c022798bbf3f7fb009
